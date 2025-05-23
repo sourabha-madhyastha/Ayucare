@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Ayucare{% endblock %}
+
+{% block content %}
+    Login Page<br>
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+{% endif %}
+    <form method="POST" action="{{ url_for('login') }}">
+        {{ form.hidden_tag() }}<br>
+        {{ form.email.label }} {{ form.email }} <br>
+        {{ form.role.label }} {{ form.role }} <br>
+        {{ form.password.label }} {{ form.password }} <br>
+        {{ form.submit() }}
+    </form>
+{% endblock %}
+

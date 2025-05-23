@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Book Appointment{% endblock %}
+
+{% block content %}
+    <h1>Book an Appointment</h1>
+    <form method="POST" action="{{ url_for('bookappointment') }}">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.doctor.label }} {{ form.doctor }}
+        </div>
+        <div>
+            {{ form.date.label }} {{ form.date }}
+        </div>
+        <div>
+            {{ form.time.label }} {{ form.time }}
+        </div>
+        <button type="submit">Book Appointment</button>
+    </form>
+{% endblock %}

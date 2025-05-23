@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Patient History{% endblock %}
+
+{% block content %}
+    <h1>Patient Appointment History</h1>
+    {% if history %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Doctor</th>
+                    <th>Specialization</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in history %}
+                    <tr>
+                        <td>{{ record[0] }}</td>
+                        <td>{{ record[1] }}</td>
+                        <td>{{ record[2] }}</td>
+                        <td>{{ record[3] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No appointment history found.</p>
+    {% endif %}
+{% endblock %}

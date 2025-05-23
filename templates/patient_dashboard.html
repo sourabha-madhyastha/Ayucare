@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Patient Dashboard{% endblock %}
+
+{% block content %}
+    <h1>Patient Dashboard</h1>
+    
+   <div>
+    <a href="{{ url_for('patient_history') }}">Patient History</a>   
+   </div>
+   <div>
+    <a href="{{ url_for('bookappointment') }}">Book an Appointment</a>
+   </div>
+    
+    
+{% endblock %}
