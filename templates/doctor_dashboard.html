@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Doctor Dashboard{% endblock %}
+
+{% block content %}
+<h1>Welcome, Dr. {{ name }}</h1>
+
+<!-- Section for viewing appointments -->
+<h2>Your Appointments</h2>
+{% if appointments %}
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Patient Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Contact</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+                <tr>
+                    <td>{{ appointment.patient_name }}</td>
+                    <td>{{ appointment.date }}</td>
+                    <td>{{ appointment.time }}</td>
+                    <td>{{ appointment.contact }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No appointments scheduled.</p>
+{% endif %}
+
+<a href="{{ url_for('logout') }}">Logout</a>
+{% endblock %}
