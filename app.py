@@ -79,7 +79,7 @@ def login():
                         doctor = cur.fetchone()
                         if doctor:
                             session['doctor_id'] = doctor[0]
-                        return render_template('doctor_dashboard.html')
+                        return render_template('doctor_dashboard.html', name=a[1])
                     elif role == 'patient':
                         cur.execute("SELECT id FROM patient WHERE user_id=%s", [user_id])
                         patient = cur.fetchone()
